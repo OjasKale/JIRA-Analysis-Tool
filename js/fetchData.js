@@ -42,7 +42,29 @@ basicJSON.controller('JIRAJSON',function($scope,$http){
                 }
                 return objs;
             }
-
+            
+//Done, to do percentage  code****//
+            
+            var countDone = 0;
+            var countToDo = 0;
+            var countInProgress = 0;
+            for (var i = 0; i < data.searchResults.issues.length; i++) {
+                if(data.searchResults.issues[i].fields.status.name == 'Done'){
+                       countDone++;
+                }
+                else if(data.searchResults.issues[i].fields.status.name == 'To Do'){
+                       countToDo++;
+                }
+                else if(data.searchResults.issues[i].fields.status.name == 'In Progress'){
+                       countInProgress++;
+                }
+            }
+            console.log(countDone);
+            console.log(countToDo);
+            console.log(countInProgress);
+            
+            
+            
 //For Priority Pie Chart            
             var jsonPriorityPie = [];
             for (var i = 0; i < data.searchResults.issues.length; i++) {
