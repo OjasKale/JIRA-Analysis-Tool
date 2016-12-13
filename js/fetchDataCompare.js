@@ -5,7 +5,7 @@ basicJSON.controller('JIRAJSON',function($scope,$http){
 
             method : "get",
             
-            url: "http://35.164.38.196:3332/businessdashboard"
+            url: "jira.json"
 
         //    url : "http://35.164.38.196:3333/businessdashboard"
 
@@ -95,6 +95,37 @@ basicJSON.controller('JIRAJSON',function($scope,$http){
 
                 
             }
+
+            
+//Getting assignee for comparer names end
+            $scope.searchAssigneeCompare = function(){
+                            var assigneejsonIssueTypeNamePie = [];
+                            var assigneejsonPriorityPie = [];
+                for (var i = 0; i < data.searchResults.issues.length; i++) {
+                        if(data.searchResults.issues[i].fields.assignee)
+                    {
+                        if(data.searchResults.issues[i].fields.assignee.name == $scope.selectedAssigneeCompare)
+                        {
+                        var IssueNamePie = data.searchResults.issues[i].fields.issuetype.name;
+                        var priorityPie = data.searchResults.issues[i].fields.priority.name;
+                            assigneejsonIssueTypeNamePie.push(IssueNamePie);
+                            assigneejsonPriorityPie.push(priorityPie);
+                            //                            console.log(data.searchResults.issues[i].fields.assignee.name);
+                        }
+                    }
+                }
+                $scope.finalissueTypeNameJson = getKeyValuePie(assigneejsonIssueTypeNamePie);
+                $scope.generateDynamicIssueNameCompare($scope.finalissueTypeNameJson);
+
+//dynamic for priority
+        
+           var finalPriorityJson = getKeyValuePie(assigneejsonPriorityPie);
+                
+                $scope.generateDynamicPriorityCompare(finalPriorityJson);
+
+                
+            }
+
 //***Priority Pie Charts
 //***Priority Pie Charts
  $scope.generateDynamicPriority = function(x){
@@ -135,6 +166,76 @@ basicJSON.controller('JIRAJSON',function($scope,$http){
 //***IssueTypeName Pie Charts
  $scope.generateDynamicIssueName = function(x){
 Highcharts.chart('containerIssueTypeName', {
+        chart: {
+            plotBackgroundColor: null,
+            plotBorderWidth: null,
+            plotShadow: false,
+            type: 'pie'
+        },
+        title: {
+            text: 'Browser market shares January, 2015 to May, 2015'
+        },
+        tooltip: {
+            pointFormat: '{series.name}: <b>{point.percentage:.1f}%</b>'
+        },
+        plotOptions: {
+            pie: {
+                allowPointSelect: true,
+                cursor: 'pointer',
+                dataLabels: {
+                    enabled: true,
+                    format: '<b>{point.name}</b>: {point.percentage:.1f} %',
+                    style: {
+                        color: (Highcharts.theme && Highcharts.theme.contrastTextColor) || 'black'
+                    }
+                }
+            }
+        },
+        series: [{
+            name: 'Brands',
+            colorByPoint: true,
+            data: x
+        }]
+    });
+        }
+ $scope.generateDynamicPriorityCompare = function(x){
+    Highcharts.chart('priorityContainerCompare', {
+        chart: {
+            plotBackgroundColor: null,
+            plotBorderWidth: null,
+            plotShadow: false,
+            type: 'pie'
+        },
+        title: {
+            text: 'Browser market shares January, 2015 to May, 2015'
+        },
+        tooltip: {
+            pointFormat: '{series.name}: <b>{point.percentage:.1f}%</b>'
+        },
+        plotOptions: {
+            pie: {
+                allowPointSelect: true,
+                cursor: 'pointer',
+                dataLabels: {
+                    enabled: true,
+                    format: '<b>{point.name}</b>: {point.percentage:.1f} %',
+                    style: {
+                        color: (Highcharts.theme && Highcharts.theme.contrastTextColor) || 'black'
+                    }
+                }
+            }
+        },
+        series: [{
+            name: 'Brands',
+            colorByPoint: true,
+            data: x
+        }]
+    });
+        }
+
+//***IssueTypeName Pie Charts
+ $scope.generateDynamicIssueNameCompare = function(x){
+Highcharts.chart('containerIssueTypeNameCompare', {
         chart: {
             plotBackgroundColor: null,
             plotBorderWidth: null,
