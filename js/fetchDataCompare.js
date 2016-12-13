@@ -5,7 +5,7 @@ basicJSON.controller('JIRAJSON',function($scope,$http){
 
             method : "get",
             
-            url: "jira.json"
+            url: "js/jira.json"
 
         //    url : "http://35.164.38.196:3333/businessdashboard"
 
