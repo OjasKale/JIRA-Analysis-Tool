@@ -15,7 +15,7 @@ basicJSON.controller('JIRAJSON',function($scope,$http){
 
         }).success(function (data) {
             console.log(data);
-            
+            $scope.totalIssues = data.searchResults.issues.length;
 //****function to count array duplicate
             var countWholeArray = function(arr){
             var obj = [];
