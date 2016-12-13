@@ -10,7 +10,7 @@ basicJSON.controller('JIRAJSON',function($scope,$http){
             method : "get",
             
 
-            url : "jira.json"
+            url : "js/jira.json"
 
         }).success(function (data) {
             console.log(data);
