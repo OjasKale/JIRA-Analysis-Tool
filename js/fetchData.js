@@ -61,7 +61,9 @@ basicJSON.controller('JIRAJSON',function($scope,$http){
             console.log("CountDone:" + countDone);
             console.log(countToDo);
             console.log(countInProgress);
-            
+            $scope.countDone = countDone;
+            $scope.countToDo = countToDo;
+            $scope.countInProgress = countInProgress;
             
             Highcharts.chart('Prog', {
 
