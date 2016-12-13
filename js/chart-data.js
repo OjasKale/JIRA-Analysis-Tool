@@ -1,10 +1,10 @@
 var randomScalingFactor = function(){ return Math.round(Math.random()*1000)};
 	
 	var lineChartData = {
-			labels : ["January","February","March","April","May","June","July"],
+			labels : ["January","February","March","April","May","June","July","August"],
 			datasets : [
 				{
-					label: "My First dataset",
+					label: "Issue Completed",
 					fillColor : "rgba(220,220,220,0.2)",
 					strokeColor : "rgba(220,220,220,1)",
 					pointColor : "rgba(220,220,220,1)",
@@ -14,7 +14,7 @@ var randomScalingFactor = function(){ return Math.round(Math.random()*1000)};
 					data : [randomScalingFactor(),randomScalingFactor(),randomScalingFactor(),randomScalingFactor(),randomScalingFactor(),randomScalingFactor(),randomScalingFactor()]
 				},
 				{
-					label: "My Second dataset",
+					label: "Issue Created",
 					fillColor : "rgba(48, 164, 255, 0.2)",
 					strokeColor : "rgba(48, 164, 255, 1)",
 					pointColor : "rgba(48, 164, 255, 1)",
