@@ -62,7 +62,7 @@ basicJSON.controller('JIRAJSON',function($scope,$http){
             console.log(countToDo);
             console.log(countInProgress);
             
-
+            
             Highcharts.chart('Prog', {
 
         chart: {
