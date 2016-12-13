@@ -58,12 +58,18 @@ basicJSON.controller('JIRAJSON',function($scope,$http){
 //For TypeName Pie Chart end
 //Getting assignee names
             var allAssignee = [];
+            var setTeams = new Set();
             for (var i = 0; i < data.searchResults.issues.length; i++) {
                 if(data.searchResults.issues[i].fields.assignee){
-                var assignee = data.searchResults.issues[i].fields.assignee.name;
-                allAssignee.push(assignee);
+                    var assignee = data.searchResults.issues[i].fields.assignee.name;
+                    setTeams.add(assignee);
                 }
+
+
             }
+            for (var item of setTeams) {
+                    allAssignee.push(item);
+                }
                 //console.log(allAssignee);
             $scope.jiraAssignee = allAssignee;
              console.log($scope.jiraAssignee);

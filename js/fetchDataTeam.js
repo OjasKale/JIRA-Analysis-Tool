@@ -58,13 +58,26 @@ basicJSON.controller('JIRAJSON',function($scope,$http){
 //For TypeName Pie Chart end
 //Getting Teams names
             var allTeams = [];
+            var setTeams = new Set();
+
             for (var i = 0; i < data.searchResults.issues.length; i++) {
+                    
                 if(data.searchResults.issues[i].fields.customfield_10302){
-                var team = data.searchResults.issues[i].fields.customfield_10302.value;
-                allTeams.push(team);
+                    var team = data.searchResults.issues[i].fields.customfield_10302.value;
+                    setTeams.add(team);
+                    // allTeams.push(team);
+
                 }
+            
             }
-                //console.log(allTeams);
+                console.log(setTeams);
+                for (var item of setTeams) {
+                    allTeams.push(item);
+                }
+            // var unique = allTeams.filter(function(elem , pos){
+            //     return allTeams.indexOf(elem) = pos;
+            // });
+            // console.log(unique);
             $scope.jiraTeams = allTeams;
              console.log($scope.jiraTeams);
 //Getting Team names end
