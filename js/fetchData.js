@@ -9,9 +9,9 @@ basicJSON.controller('JIRAJSON',function($scope,$http){
 
             method : "get",
             
-            url: "jira.json"
+            //url: "jira.json"
 
-            //url : "http://172.20.10.4:3333/businessdashboard"
+            url : "http://35.164.38.196:3332/businessdashboard"
 
         }).success(function (data) {
             console.log(data);
