@@ -101,24 +101,24 @@
 			</div>
 		</div><!--/.row-->
         <div class="col-xs-6">
-        <select ng-model="selectedAssignee" ng-options="assignee as assignee for assignee in jiraAssignee" ng-change="searchAssignee()">
+        <select class="col-xs-6" ng-model="selectedAssignee" ng-options="assignee as assignee for assignee in jiraAssignee" ng-change="searchAssignee()">
             <option value="">-- choose Employee --</option>
         </select>
 		
 		<div class="row">
 			<div class="col-xs-12" id="priorityContainer"></div>
-			<div class="col-xs-12" id="containerIssueTypeName"></div>
+			<div style="padding-top:20px;" class="col-xs-12" id="containerIssueTypeName"></div>
             <!--/.col-->
 		</div>
         </div><!--/.row-->
         <div class="col-xs-6">
-        <select ng-model="selectedAssigneeCompare" ng-options="assignee as assignee for assignee in jiraAssignee" ng-change="searchAssigneeCompare()">
+        <select class="col-xs-6" ng-model="selectedAssigneeCompare" ng-options="assignee as assignee for assignee in jiraAssignee" ng-change="searchAssigneeCompare()">
             <option value="">-- choose Employee to compare --</option>
         </select>
 		
 		<div class="row">
 			<div class="col-xs-12" id="priorityContainerCompare"></div>
-			<div class="col-xs-12" id="containerIssueTypeNameCompare"></div>
+			<div style="padding-top:20px;" class="col-xs-12" id="containerIssueTypeNameCompare"></div>
             <!--/.col-->
 		</div>
         </div><!--/.row-->
